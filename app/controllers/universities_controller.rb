@@ -82,8 +82,22 @@ class UniversitiesController < ApplicationController
   end
 
   def searchUniversity
-    @filterrific = Filterrific.new(University, params[:filterrific])
-    @universities = University.filterrific_find(@filterrific).page(params[:page])
+
+    @filterrific = Filterrific.new(
+      University,
+      params[:filterrific] || session[:filterrific_universities]
+    )
+
+    @filterrific.select_options = {
+      sorted_by: University.options_for_sorted_by
+    }
+
+    #@posts = Post.paginate(:page => params[:page])
+    @Universities = University.filterrific_find(@filterrific).paginate(:page => params[:page])
+
+    # Persist the current filter settings in the session as a plain old Hash.
+    session[:filterrific_universities] = @filterrific.to_hash
+
     respond_to do |format|
       format.html
       format.js

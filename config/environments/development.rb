@@ -36,8 +36,8 @@ SelectMyMajor::Application.configure do
   config.assets.debug = true
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
-  
-  #mailer config 
+
+  #mailer config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
@@ -47,8 +47,8 @@ SelectMyMajor::Application.configure do
     :domain => "mail.google.com",
     :authentication => :login,
     :user_name => 'selectmymajor',
-    :password => 'sameer@123'
-    :enable_starttls_auto => true 
+    :password => 'sameer@123',
+    :enable_starttls_auto => true
   }
-  
+
 end

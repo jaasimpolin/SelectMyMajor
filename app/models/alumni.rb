@@ -11,13 +11,14 @@ class Alumni < ActiveRecord::Base
   has_one :uni_major, through: :university
   attr_accessible :age, :email, :graduation_year, :linkedin, :name, :phone, :university_id, :email, :password, :password_confirmation, :remember_me
 
+
+
 end
 
-public 
+public
 
-def role? 
+def role?
 
 	return false
-	
-end
 
+end

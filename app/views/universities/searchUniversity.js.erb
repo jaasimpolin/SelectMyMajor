@@ -1,5 +1,8 @@
 
 <% js = escape_javascript(
-  render(partial: 'universities/list', locals: { universities: @universities })
+render(
+:partial => 'universities/list',
+:locals => { :universities => @universities }
+)
 ) %>
-$("#filterrific_results").html("<%= js %>");
+$("#results").html("<%= js %>");

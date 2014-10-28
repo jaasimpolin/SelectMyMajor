@@ -11,7 +11,7 @@ class AlumnisController < ApplicationController
     end
   end
 
-  
+
 def invite
    @alumni = Alumni.find(params[:id])
    Alumni.invite!(:email => @alumni.email)
@@ -20,8 +20,8 @@ def invite
      format.js
    end
  end
-  
-  
+
+
   # GET /alumnis/1
   # GET /alumnis/1.json
   def show
@@ -92,4 +92,6 @@ def invite
       format.json { head :no_content }
     end
   end
+
+  
 end
